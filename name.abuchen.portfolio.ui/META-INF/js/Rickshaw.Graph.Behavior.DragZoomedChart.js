@@ -80,16 +80,16 @@ Rickshaw.Graph.Behavior.DragZoomedChart = function(args) {
 				return;
 			}
 			var domain = self.graph.renderer.domain(series);
-			if (self.initRange.x.min === undefined || domain.x[0] < initRange.x.min) {
+			if (self.initRange.x.min === undefined || domain.x[0] < self.initRange.x.min) {
 				self.initRange.x.min = domain.x[0];
 			}
-			if (self.initRange.x.max === undefined || domain.x[1] > initRange.x.max) {
+			if (self.initRange.x.max === undefined || domain.x[1] > self.initRange.x.max) {
 				self.initRange.x.max = domain.x[1];
 			}
-			if (self.initRange.y.min === undefined || domain.y[0] < initRange.y.min) {
+			if (self.initRange.y.min === undefined || domain.y[0] < self.initRange.y.min) {
 				self.initRange.y.min = domain.y[0];
 			}
-			if (self.initRange.y.max === undefined || domain.y[1] > initRange.y.max) {
+			if (self.initRange.y.max === undefined || domain.y[1] > self.initRange.y.max) {
 				self.initRange.y.max = domain.y[1];
 			}
 		});
@@ -118,10 +118,10 @@ Rickshaw.Graph.Behavior.DragZoomedChart = function(args) {
 			deltaY = self.initRange.y.max - maxY;
 		}
 
-		self.graph.window.xMin = minX + deltaX;
-		self.graph.window.xMax = maxX += deltaX;
-		self.graph.min = minY + deltaY;
-		self.graph.max = maxY + deltaY;
+		self.graph.window.xMin = (minX + deltaX);
+		self.graph.window.xMax = (maxX + deltaX);
+		self.graph.min = (minY + deltaY);
+		self.graph.max = (maxY + deltaY);
 		self.graph.render();
 	};
 

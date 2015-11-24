@@ -82,7 +82,7 @@ Rickshaw.Graph.Behavior.MouseWheelZoom = function(args) {
 			maxY = this.getCurrentMaxY();
 			reduceBy = (maxY - minY) * this.zoom_ratio;
 			relativePos = (coordinate - minY) / (maxY - minY);
-			if ((maxY - minY) < (initRange.y.max - initRange.y.min) * this.zoom_ratio) {
+			if ((maxY - minY) < (initRange.y.max - initRange.y.min) * (this.zoom_ratio*this.zoom_ratio)) {
 				return;
 			}
 			self.graph.min = minY + (reduceBy * relativePos);
@@ -115,7 +115,7 @@ Rickshaw.Graph.Behavior.MouseWheelZoom = function(args) {
 			maxX = this.getCurrentMaxX();
 			reduceBy = (maxX - minX) * this.zoom_ratio;
 			relativePos = (coordinate - minX) / (maxX - minX);
-			if ((maxX - minX) < (initRange.x.max - initRange.x.min) * this.zoom_ratio) {
+			if ((maxX - minX) < (initRange.x.max - initRange.x.min) * (this.zoom_ratio*this.zoom_ratio)) {
 				return;
 			}
 			self.graph.window.xMin = minX + (reduceBy * relativePos);

@@ -9,7 +9,7 @@
 //            .linePattern : only applies to 'dottedline', a string with comma separated numbers (e.g. '4, 2') where each number is the length in pixels of a line/gap pattern
 // args.interpolation      : a string constant defining the interpolation style between data points (see D3 documentation), default: 'monotone'
 // args.numberFormat       : Number format for y-axis labels, as interpreted by http://code.google.com/p/jquery-numberformatter/, if omitted, the formatKMBT of Rickshaw is used
-// args.numberFormatLocale : Locale used to format number, default 'us'
+// args.numberFormatLocale : Locale used to format numbers and dates, default 'us'
 // args.minY               : minimum y-value, default 'auto'
 // args.maxY               : maximum y-value, default 'auto'
 // args.showLegend         : true (default) if the legend should be displayed, when false, the legend will be hidden
@@ -36,8 +36,10 @@ function LineChart(args) {
 	});
 
 	x_axis = new Rickshaw.Graph.Axis.Time({
-		graph : graph
+		graph       : graph,
+		timeFixture : new Rickshaw.Fixtures.PortfolioTime()
 	});
+
 
 	y_axis = new Rickshaw.Graph.Axis.Y({
 		graph : graph,
